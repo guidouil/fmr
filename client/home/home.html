@@ -16,7 +16,13 @@
             <p>
               {{desc}}
             </p>
-            <p><button class="btn btn-success register" id="{{_id}}">Register</button></p>
+            <p>
+              <a href="{{pathFor 'register' _id}}" class="btn btn-success" id="{{_id}}">Register <span class="badge">{{attendees _id}}</span></a>
+              {{#if isOwner _id}}
+              <a href="{{pathFor 'edit' _id}}" class="btn btn-warning">Edit</a>
+              {{/if}}
+            </p>
+
           </div>
         </div>
       </div>

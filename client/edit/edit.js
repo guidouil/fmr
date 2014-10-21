@@ -1,4 +1,4 @@
-Template.add.events({
+Template.edit.events({
   'click #savebutton': function (evt,tmpl) {
     evt.preventDefault();
     var titleinput = tmpl.find('#titleinput').value;
@@ -20,16 +20,15 @@ Template.add.events({
       var valid = false;
     };
     if (valid === true) {
-      var eventId = Events.insert({
+      var eventId = Router.current().params._id;
+      Events.update({_id: eventId}, { $set: {
         title: titleinput,
         desc: descinput,
         email: emailinput,
         date: dateinput,
-        time: timeinput,
-        created: createddate,
-        owner: Meteor.userId()
-      });
-      swal("Great !", "You created the " + titleinput + " event!", "success");
+        time: timeinput
+      }});
+      growl('OK', 'Event succesfully updated', 'success');
       Router.go('home');
     };
   }

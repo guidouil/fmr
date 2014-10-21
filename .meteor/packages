@@ -16,4 +16,6 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 joshowens:accounts-entry
 coffeescript
+zimme:bootstrap-growl
+kevohagan:sweetalert
 
